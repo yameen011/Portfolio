@@ -1,0 +1,367 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Yameen Karim</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a fixed identity column on the left (name, status, links), a single reading column on the right.
+   Rows with hairlines instead of cards. Warm orange accent on stone neutrals. */
+:root {
+  --bg: #F6F5F3;
+  --surface: #FFFFFF;
+  --fg: #060404d7;
+  --muted: #000000;
+  --line: #c2bbaf;
+  --accent: #000000;
+  --accent-soft: #9cef64;
+  --signal: #9c0742;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14110F; --surface: #1D1916; --fg: #F2EEEA; --muted: #A59D94; --line: #554d46;
+    --accent: #f5265a; --accent-soft: #21170e; --signal: #3DD6A3; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14110F; --surface: #1D1916; --fg: #F2EEEA; --muted: #A59D94; --line: #554d45;
+  --accent: #fedd1e; --accent-soft: #293e1d; --signal: #3DD6A3; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  column-gap: 72px;
+}
+
+/* ---------- identity column ---------- */
+.side { padding-block: 56px 32px; }
+.side-inner { position: sticky; top: 56px; display: flex; flex-direction: column; gap: 28px; }
+.status {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  font-family: var(--font-mono); font-size: 12.5px; color: var(--muted);
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--signal); flex: none; }
+h1 {
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 5vw, 3.1rem);
+  line-height: 1.02; letter-spacing: -0.02em; margin: 0; text-wrap: balance;
+}
+.role { margin: 10px 0 0; color: var(--muted); font-size: 15.5px; }
+.nav { display: flex; flex-direction: column; gap: 2px; font-family: var(--font-mono); font-size: 13px; }
+.nav a { color: var(--muted); text-decoration: none; padding: 5px 0; width: max-content; border-bottom: 1px solid transparent; }
+.nav a:hover { color: var(--fg); border-bottom-color: var(--accent); }
+.links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14.5px; }
+.theme {
+  align-self: flex-start; font: inherit; font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+  background: none; border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; cursor: pointer;
+}
+.theme:hover { color: var(--fg); border-color: var(--muted); }
+
+/* ---------- reading column ---------- */
+main { padding-block: 56px 80px; min-width: 0; }
+section { padding-block: 0 56px; scroll-margin-top: 24px; }
+h2 {
+  font-family: var(--font-mono); font-weight: 500; font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 22px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+}
+.lead { font-size: 1.2rem; line-height: 1.55; margin: 0 0 18px; max-width: 62ch; text-wrap: pretty; }
+p { margin: 0 0 14px; max-width: 65ch; }
+.muted { color: var(--muted); }
+
+/* skills */
+.skills { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 14px 24px; margin: 0; }
+.skills dt { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 2px; }
+.skills dd { margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; list-style: none; }
+.chips li {
+  font-family: var(--font-mono); font-size: 12.5px; padding: 3px 9px; border-radius: 4px;
+  background: var(--accent-soft); color: var(--accent);
+}
+
+/* projects and experience share the row pattern */
+.row { padding-block: 22px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 8px 24px; }
+.row:first-of-type { border-top: 0; padding-top: 0; }
+.row-meta { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.row h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; line-height: 1.25; margin: 0 0 8px; letter-spacing: -0.01em; }
+.row .org { color: var(--muted); margin: -2px 0 10px; font-size: 15px; }
+.row ul.points { margin: 0 0 12px; padding-left: 18px; max-width: 65ch; }
+.row ul.points li { margin-bottom: 4px; }
+.row .chips { margin-top: 12px; }
+
+/* contact */
+.contact-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+.contact-list li { display: grid; grid-template-columns: 170px minmax(0, 1fr) auto; gap: 8px 24px; align-items: center; padding-block: 14px; border-top: 1px solid var(--line); }
+.contact-list li:first-child { border-top: 0; padding-top: 0; }
+.contact-list .k { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.contact-list .v { overflow-wrap: anywhere; }
+.copy {
+  font-family: var(--font-mono); font-size: 12px; color: var(--accent); background: none;
+  border: 1px solid var(--line); border-radius: 4px; padding: 4px 10px; cursor: pointer; min-width: 64px;
+}
+.copy:hover { border-color: var(--accent); }
+.foot { font-family: var(--font-mono); font-size: 12px; color: var(--muted); padding-block: 8px 48px; }
+
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); column-gap: 0; }
+  .side { padding-block: 40px 8px; }
+  .side-inner { position: static; gap: 20px; }
+  .nav { flex-direction: row; flex-wrap: wrap; gap: 4px 18px; }
+  main { padding-block: 32px 56px; }
+}
+@media (max-width: 600px) {
+  .skills, .row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .skills dd { margin-bottom: 10px; }
+  .contact-list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .contact-list .k { grid-column: 1 / -1; }
+}
+</style>
+
+<div class="wrap">
+  <header class="side">
+    <div class="side-inner">
+      <span class="status"><span class="dot" aria-hidden="true"></span>Open to entry-level roles</span>
+      <div>
+        <h1>Yameen Karim</h1>
+        <p class="role">Computer Science graduate in Karachi, Pakistan. Software, data and web.</p>
+      </div>
+      <nav class="nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="links">
+        <a href="https://github.com/yameen011" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/yameen-karim-97a18a239" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme">Switch theme</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p class="lead">I finished my B.S. in Computer Science at DHA Suffa University in 2026, and I am looking for a first job on a team where I can keep learning.</p>
+      <p>My projects cover web apps in React and plain JavaScript, desktop and network programs in Java, and a deep learning model in Python. I like working out how things behave under the hood, and I pick up new tools quickly.</p>
+      <p>I write and speak English and Urdu, take feedback well, and work comfortably both alone and in a group. I am applying for software development, data analytics and technical support roles.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Programming</dt>
+        <dd><ul class="chips"><li>Java</li><li>Python</li><li>JavaScript</li><li>C++</li><li>C</li><li>SQL</li></ul></dd>
+        <dt>Web</dt>
+        <dd><ul class="chips"><li>HTML5</li><li>CSS3</li><li>React.js</li><li>Bootstrap</li><li>Responsive design</li><li>RESTful APIs</li></ul></dd>
+        <dt>Databases</dt>
+        <dd><ul class="chips"><li>SQL</li><li>MySQL</li><li>Relational design</li><li>DBMS</li></ul></dd>
+        <dt>Data and AI</dt>
+        <dd><ul class="chips"><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>Data analysis</li><li>Deep learning</li><li>CNNs</li></ul></dd>
+        <dt>Software practice</dt>
+        <dd><ul class="chips"><li>OOP</li><li>Data structures and algorithms</li><li>SDLC</li><li>Problem solving</li></ul></dd>
+      </dl>
+    </section>
+
+    <section id="work">
+      <h2>Experience</h2>
+      <article class="row">
+        <div class="row-meta">5 Sep 2026<br>to 20 Oct 2026</div>
+        <div>
+          <h3>Virtual Intern</h3>
+          <p class="org">Oasis Infobyte, remote</p>
+          <ul class="points">
+            <li>Built a voice assistant application that responds to spoken user commands.</li>
+            <li>Developed a random password generator that produces strong, randomized passwords.</li>
+            <li>Created a basic command-line server and client chat application (no GUI) for message exchange.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">Sep 2024<br>to Feb 2025</div>
+        <div>
+          <h3>Junior Web Developer</h3>
+          <p class="org">Virtual internship</p>
+          <ul class="points">
+            <li>Developed responsive web pages using HTML5 and CSS3 as part of a virtual software development program.</li>
+            <li>Implemented JavaScript logic for form validation and user interaction.</li>
+            <li>Applied responsive design principles and structured development workflows to practical tasks.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">Jul 2024<br>to Sep 2024</div>
+        <div>
+          <h3>Frontend Web Development Intern</h3>
+          <p class="org">Internshala Trainings, remote</p>
+          <ul class="points">
+            <li>Completed hands-on frontend projects using HTML5, CSS3, JavaScript and responsive design.</li>
+            <li>Developed landing pages and form-based websites with structured layouts and user interactions.</li>
+            <li>Applied UI and UX principles across different screen sizes.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <article class="row">
+        <div class="row-meta">Deep learning</div>
+        <div>
+          <h3>LeafGuard</h3>
+          <p>A computer vision application that detects diseases in tomato and pepper leaves using CNN architectures. I handled the data preprocessing and analysis with Pandas and NumPy.</p>
+          <ul class="chips"><li>Python</li><li>CNN</li><li>Pandas</li><li>NumPy</li></ul>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">Networking</div>
+        <div>
+          <h3>Chat Application</h3>
+          <p>A multi-user, real-time chat application with connection handling, message exchange and session history. The interface is built with Java Swing.</p>
+          <ul class="chips"><li>Java</li><li>Socket programming</li><li>Swing</li></ul>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">Web app</div>
+        <div>
+          <h3>Weather Application</h3>
+          <p>Fetches and displays real-time weather data for countries worldwide, using React.js and a weather API.</p>
+          <ul class="chips"><li>React.js</li><li>HTML5</li><li>CSS3</li><li>APIs</li></ul>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">Website</div>
+        <div>
+          <h3>Konsoule Gaming Web</h3>
+          <p>A multi-page gaming website with responsive layouts and JavaScript-driven interactivity.</p>
+          <ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">OOP</div>
+        <div>
+          <h3>Quiz Application</h3>
+          <p>A multiple-choice quiz with dynamic scoring and result calculation, structured around object-oriented principles.</p>
+          <ul class="chips"><li>Java</li><li>OOP</li></ul>
+        </div>
+      </article>
+      <p class="muted" style="margin-top:8px">More code is on <a href="https://github.com/yameen011" target="_blank" rel="noopener">my GitHub profile</a>.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <article class="row">
+        <div class="row-meta">Nov 2022<br>to Jul 2026</div>
+        <div>
+          <h3>B.S. Computer Science</h3>
+          <p class="org">DHA Suffa University, Karachi</p>
+          <p class="muted">Coursework: OOP, Data Structures and Algorithms, Web Engineering, Database Management Systems, AI, Deep Learning.</p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">Aug 2020<br>to 2022</div>
+        <div>
+          <h3>HSSC, Pre-Engineering</h3>
+          <p class="org">AKHSS, Karachi</p>
+        </div>
+      </article>
+      <article class="row">
+        <div class="row-meta">Jan 2022</div>
+        <div>
+          <h3>Databases and SQL for Data Science</h3>
+          <p class="org">IBM certification</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="k">Email</span>
+          <span class="v" id="email-text">yameen.karim05@gmail.com</span>
+          <button class="copy" type="button" data-target="email-text">Copy</button>
+        </li>
+        <li>
+          <span class="k">Phone</span>
+          <span class="v" id="phone-text">0342-3466315</span>
+          <button class="copy" type="button" data-target="phone-text">Copy</button>
+        </li>
+        <li>
+          <span class="k">Elsewhere</span>
+          <span class="v"><a href="https://www.linkedin.com/in/yameen-karim-97a18a239" target="_blank" rel="noopener">LinkedIn</a> and <a href="https://github.com/yameen011" target="_blank" rel="noopener">GitHub</a></span>
+          <span></span>
+        </li>
+      </ul>
+    </section>
+    <div class="foot">Karachi, Pakistan</div>
+  </main>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  // theme switch: remembers the choice when storage is available, works without it
+  var btn = document.getElementById('theme');
+  function currentIsDark() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  try {
+    var saved = localStorage.getItem('yk-theme');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  btn.addEventListener('click', function () {
+    var next = currentIsDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('yk-theme', next); } catch (e) {}
+  });
+
+  // copy buttons: clipboard first, text selection as the fallback
+  document.querySelectorAll('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.getAttribute('data-target'));
+      var text = el.textContent.trim();
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(el);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        b.textContent = 'Selected';
+      }
+      function done() {
+        b.textContent = 'Copied';
+        setTimeout(function () { b.textContent = 'Copy'; }, 1600);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, selectIt);
+      } else { selectIt(); }
+    });
+  });
+})();
+</script>
+
+</body></html>
